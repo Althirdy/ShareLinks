@@ -1,5 +1,5 @@
 import React, { createContext, useState } from "react";
-import { platform } from 'src/Data/Platform';
+import { defaultImg, platform } from 'src/Data/Platform';
 
 // Create context
 export const LinksContext = createContext();
@@ -15,12 +15,20 @@ export const AppProvider = ({ children }) => {
         }
     ]);
 
+    const [profile, setProfile] = useState({
+        imgSrc: defaultImg,
+        FullName: '',
+        Email: '',
+        Description: ''
+    })
 
     return (
         <LinksContext.Provider
             value={{
                 linkCards,
-                setLinkCards
+                setLinkCards,
+                profile,
+                setProfile
             }}
         >
             {children}

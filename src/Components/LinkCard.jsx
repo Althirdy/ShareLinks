@@ -44,13 +44,16 @@ export default function LinkCard(props) {
                     <RxDragHandleHorizontal size={25} />
                     <h3 className='font-medium flex items-center gap-1'>{props.cardData.platform?.label} Link </h3>
                 </div>
-                {props.id !== 1 && <motion.button
-                    onClick={() => props.removeCard(props.id)}
-                    whileHover={{ scale: 1.02 }}
-                    className='bg-red-200 text-sm text-gray-900 px-3 py-1 rounded-md'>
-                    Remove
-                </motion.button>
+                {linkCards.length !== 1
+                    &&
+                    <motion.button
+                        onClick={() => props.removeCard(props.id)}
+                        whileHover={{ scale: 1.02 }}
+                        className='bg-red-200 text-sm text-gray-900 px-3 py-1 rounded-md'>
+                        Remove
+                    </motion.button>
                 }
+
             </div>
             <div className='flex flex-col gap-2 '>
                 <label htmlFor="platform" className='text-sm'>Platform</label>
