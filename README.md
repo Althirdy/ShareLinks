@@ -1,9 +1,9 @@
 # ShareLink
 
+![image](https://github.com/Althirdy/ShareLinks/assets/109643361/d023a076-6803-42a9-b5d7-0b3372bf7901)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Simple React app that will allow a user to add their social links and customize it using ShareLinks
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-UseContext: I Use useContext Hook for this to make the links globally and prevent the props drilling
+-UseState: For handling some interactive variables or data
+-React DND: Drag and Drop for arranging the links
