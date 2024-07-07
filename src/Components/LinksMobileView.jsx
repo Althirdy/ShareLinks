@@ -26,7 +26,7 @@ export default function LinksMobileView() {
                 </div>
                 <h5>Description</h5>
                 {profile.Description ?
-                    <textarea value={profile.Description} rows={4} disabled className='text-sm font-regular p-2 border border-gray-400 resize-none w-full tracking-tight text-gray-700 mt-3 rounded-md  ' /> :
+                    <textarea value={profile.Description} rows={5} disabled className='text-sm font-regular p-2 border border-gray-400 resize-none w-full tracking-tight text-gray-700 mt-3 rounded-md  ' /> :
                     <div className={` h-12 rounded-md bg-gray-300  animate-pulse mt-5`}></div>
                 }
             </div>
