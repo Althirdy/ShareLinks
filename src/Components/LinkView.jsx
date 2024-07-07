@@ -30,6 +30,9 @@ export default function LinkView(props) {
         case 'github':
             backgroundColor = 'bg-gray-900'
             break;
+        case 'facebook':
+            backgroundColor = 'bg-blue-600'
+            break;
         default:
             backgroundColor = 'bg-gray-500'
             break;
@@ -46,7 +49,6 @@ export default function LinkView(props) {
             <div className={`${backgroundColor} flex items-center text-gray-100 justify-between p-4 rounded-md w-60 md:w-72 lg:w-80`}>
                 <h3 className='flex   items-center text-md gap-2'>
                     {props.data.platform?.label}
-
                 </h3>
                 <FaArrowRight />
             </div>

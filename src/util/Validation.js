@@ -11,6 +11,9 @@ const validateLink = (link, platform, setIsValid) => {
         case 'x':
             platformRegex = /^(https?:\/\/)?(www\.)?(x\.com\/[\w\-]+|twitter\.com\/[\w\-]+)[\w\-./#?]*$/;
             break;
+        case 'facebook':
+            platformRegex = /^(https?:\/\/)?(www\.)?(x\.com\/[\w\-]+|facebook\.com\/[\w\-]+)[\w\-./#?]*$/;
+            break;
         default:
             platformRegex = /^(https?:\/\/)?[\w\-]+(\.[\w\-]+)+[/#?]?.*$/; // Default regex for general URLs
             break;

@@ -6,7 +6,7 @@ import { Toaster } from 'react-hot-toast'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <>
     <Toaster
-      position="top-center"
+      position="bottom-right"
       reverseOrder={false}
     />
     <App />

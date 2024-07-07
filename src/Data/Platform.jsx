@@ -1,5 +1,5 @@
 import { CiTwitter } from "react-icons/ci";
-import { FaGithub, FaYoutube } from "react-icons/fa";
+import { FaGithub, FaYoutube, FaFacebook } from "react-icons/fa";
 
 const defaultImg = "https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ="
 
@@ -36,7 +36,15 @@ const platform = [
             </div>
         )
     },
+    {
+        value: 'facebook',
+        label: (
+            <div className='flex items-center  gap-2'>
+                <FaFacebook size={20} className='mt-[-3px]' /> Facebook
+            </div>
+        )
+    },
 ]
 
 
-export { platform,defaultImg }
+export { platform, defaultImg }

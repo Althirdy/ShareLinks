@@ -87,21 +87,21 @@ export default function Profile() {
         <div className='flex flex-col gap-1'>
           <label htmlFor="FullName" className='text-sm flex justify-between'>
             Full Name
-            <span className='text-xs text-red-600'>Required</span>
+            {!profile.FullName && <span className='text-xs text-red-600'>Required</span>}
           </label>
           <input type="text" name='FullName' value={profile.FullName} onChange={HandleInputChange} className='border rounded-md p-2 text-sm focus:outline-1 focus:outline-gray-700' />
         </div>
         <div className='flex flex-col gap-1'>
           <label htmlFor="Email" className='text-sm flex justify-between'>
             Email Address
-            <span className='text-xs text-red-600'>Required</span>
+            {!profile.Email && <span className='text-xs text-red-600'>Required</span>}
           </label>
           <input type="text" name='Email' value={profile.Email} onChange={HandleInputChange} className='border rounded-md p-2 text-sm focus:outline-1 focus:outline-gray-700' />
         </div>
         <div className='flex flex-col gap-1'>
           <label htmlFor="Description" className='text-sm flex justify-between'>
             Short Description
-            <span className='text-xs text-red-600'>Required</span>
+            {!profile.Description && <span className='text-xs text-red-600'>Required</span>}
           </label>
           <textarea type="text" name='Description' rows={5} value={profile.Description} onChange={HandleInputChange} className='border rounded-md resize-none p-2 text-sm focus:outline-1 focus:outline-gray-700' />
           <span className='text-sm text-gray-500'>{profile.Description.length} / {maxChars} characters</span>

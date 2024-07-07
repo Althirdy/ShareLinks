@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
 import React, { useContext, useEffect, useState } from 'react'
-import { RxDragHandleHorizontal } from "react-icons/rx";
 import Select from 'react-select';
 import { FaLink } from "react-icons/fa6";
 import { validateLink } from 'src/util/Validation';
 import { platform } from 'src/Data/Platform';
 import { LinksContext } from 'src/Context/ApiContext';
+import { RxDragHandleDots2 } from "react-icons/rx";
 
 
 export default function LinkCard(props) {
@@ -41,7 +41,7 @@ export default function LinkCard(props) {
         <div className='bg-gray-50 p-4 space-y-4'>
             <div className='flex justify-between items-center'>
                 <div className='flex items-end text-gray-600 gap-2'  {...props.dragHandleProps}>
-                    <RxDragHandleHorizontal size={25} />
+                    <RxDragHandleDots2 size={25} />
                     <h3 className='font-medium flex items-center gap-1'>{props.cardData.platform?.label} Link </h3>
                 </div>
                 {linkCards.length !== 1
