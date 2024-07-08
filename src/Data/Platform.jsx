@@ -5,44 +5,30 @@ const defaultImg = "https://media.istockphoto.com/id/1409329028/vector/no-pictur
 
 const platform = [
     {
-        value: 'other',
-        label: (
-            <div className='flex items-center  gap-2'>
-                Other
-            </div>
-        )
+        value: 'Other',
+        label: 'Other',
+        icon: ''
     },
     {
-        value: 'github',
-        label: (
-            <div className='flex items-center  gap-2'>
-                <FaGithub size={20} className='mt-[-3px]' /> Github
-            </div>
-        )
+        value: 'Github',
+        label: 'Github',
+        icon: <FaGithub size={20} className='mt-[-3px]' />
+
     },
     {
-        value: 'youtube',
-        label: (
-            <div className='flex items-center  gap-2'>
-                <FaYoutube size={20} className='mt-[-3px]' /> Youtube
-            </div>
-        )
+        value: 'Youtube',
+        label: 'Youtube',
+        icon: <FaYoutube size={20} className='mt-[-3px]' />
     },
     {
-        value: 'x',
-        label: (
-            <div className='flex items-center  gap-2'>
-                <CiTwitter size={20} className='mt-[-3px]' /> Twitter
-            </div>
-        )
+        value: 'X',
+        label: 'X [Twitter]',
+        icon: <CiTwitter size={20} className='mt-[-3px]' />
     },
     {
-        value: 'facebook',
-        label: (
-            <div className='flex items-center  gap-2'>
-                <FaFacebook size={20} className='mt-[-3px]' /> Facebook
-            </div>
-        )
+        value: 'Facebook',
+        label: 'Facebook',
+        icon: <FaFacebook size={20} className='mt-[-3px]' />
     },
 ]
 

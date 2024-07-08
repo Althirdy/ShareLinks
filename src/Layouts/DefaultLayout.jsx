@@ -15,13 +15,13 @@ export default function DefaultLayout() {
 
   return (
     <div className='mx-auto max-w-screen-xl font-[Roboto]'>
-      <section className='min-h-screen p-4 flex flex-col gap-8'>
-        <header>
+      <section className='min-h-screen  p-4 flex flex-col gap-8'>
+        <header className=''>
           <Navbar />
         </header>
         <main className='flex-grow flex justify-between flex-col bg-gray-100 rounded-md'>
-          <div className='grid grid-cols-1 p-4 lg:grid-cols-2 flex-grow gap-4'>
-            <div className=' bg-white rounded-md relative'>
+          <div className='grid grid-cols-1  p-4 lg:grid-cols-2 flex-grow gap-4'>
+            <div className=' bg-white order-last	 rounded-md relative'>
               <img src={wave} alt="" className='absolute  top-0 w-full lef-0 rounded-t-md' />
               <LinksMobileView />
             </div>

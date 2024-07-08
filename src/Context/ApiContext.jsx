@@ -14,15 +14,31 @@ export const AppProvider = ({ children }) => {
             isValidated: false
         }
     ]
-    const [linkCards, setLinkCards] = useState(defaultValue);
-
-
-    const [profile, setProfile] = useState({
-        imgSrc: defaultImg,
-        FullName: '',
-        Email: '',
-        Description: '' 
+    const [linkCards, setLinkCards] = useState(() => {
+        const pastValue = JSON.parse(localStorage.getItem('linkCards'))
+        return pastValue || defaultValue
     })
+
+    useEffect(() => {
+        localStorage.setItem('linkCards', JSON.stringify(linkCards))
+    }, [linkCards])
+
+
+
+    const [profile, setProfile] = useState(() => {
+        const pastValue = JSON.parse(localStorage.getItem('profile'))
+        return pastValue || {
+            imgSrc: defaultImg,
+            FullName: '',
+            Email: '',
+            Description: ''
+        }
+    })
+
+
+    useEffect(() => {
+        localStorage.setItem('profile', JSON.stringify(profile))
+    }, [profile])
 
     return (
         <LinksContext.Provider

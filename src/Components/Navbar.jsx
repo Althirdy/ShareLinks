@@ -19,7 +19,8 @@ export default function Navbar() {
     }]
 
     return (
-        <nav className=' flex items-center justify-between'>
+        // md:static bg-white p-3 fixed  bottom-0 z-20 w-[95%] md:w-full --Possible style in small screen of navigation bar
+        <nav className=' flex items-center justify-between '>
             <div className='flex items-center gap-2'>
                 <Logo />
                 <h1 className='font-bold tracking-tight text-3xl text-blue-600'>ShareLinks</h1>
@@ -37,9 +38,9 @@ export default function Navbar() {
                         </NavLink>
                     ))}
                 </ul>
-                <motion.button 
-                whileHover={{scale:1.02}}
-                className='text-blue-700 font-medium border border-blue-700 px-4 py-1.5 rounded-md'>
+                <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    className='text-blue-700 font-medium border text-sm border-blue-700 px-4 py-1.5 rounded-md'>
                     Preview
                 </motion.button>
             </div>

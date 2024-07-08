@@ -103,8 +103,8 @@ export default function Profile() {
             Short Description
             {!profile.Description && <span className='text-xs text-red-600'>Required</span>}
           </label>
-          <textarea type="text" name='Description' rows={5} value={profile.Description} onChange={HandleInputChange} className='border rounded-md resize-none p-2 text-sm focus:outline-1 focus:outline-gray-700' />
-          <span className='text-sm text-gray-500'>{profile.Description.length} / {maxChars} characters</span>
+          <textarea type="text" name='Description' rows={10} value={profile.Description} onChange={HandleInputChange} className='border rounded-md resize-none p-2 text-sm focus:outline-1 focus:outline-gray-700' />
+          <span className='text-sm text-gray-500'>{profile.Description?.length} / {maxChars} characters</span>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import { FaPlus } from "react-icons/fa6";
 import LinkCard from 'src/Components/LinkCard';
@@ -13,8 +13,10 @@ export default function AddingLinks() {
         linkCards,
         setLinkCards
     } = useContext(LinksContext);
-
-    const [isValid, setIsValid] = useState(false)
+    const [isValid, setisValid] = useState(false)
+    useEffect(() => {
+        setisValid(linkCards.some(item => item.isValidated === false))
+    }, [linkCards])
 
 
     const handleInputChange = (linkCardId, e) => {
@@ -69,7 +71,6 @@ export default function AddingLinks() {
                                                 id={item.id}
                                                 removeCard={removeLinkCard}
                                                 cardData={item}
-                                                setIsValid={setIsValid}
                                                 setSelectedPlatform={(selectedOption) => handlePlatformChange(item.id, selectedOption)}
                                                 handleInputChange={(e) => handleInputChange(item.id, e)}
                                             />
@@ -84,7 +85,7 @@ export default function AddingLinks() {
                 </Droppable>
             </DragDropContext >
             {
-                isValid ? <motion.button
+                !isValid ? <motion.button
                     onClick={addLinkCard}
                     whileHover={{ scale: 1.02 }
                     }

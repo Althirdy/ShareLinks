@@ -1,18 +1,18 @@
-const validateLink = (link, platform, setIsValid) => {
+const validateLink = (link, platform) => {
     // Regular expression for URL format validation based on platform
     let platformRegex;
     switch (platform) {
-        case 'youtube':
+        case 'Youtube':
             platformRegex = /^(https?:\/\/)?(www\.)?(youtube\.com\/(c\/[\w\-]+|channel\/[\w\-]+|user\/[\w\-]+|@[\w\-]+)|(youtu\.be\/[\w\-]+)|(youtube\.com\/watch\?v=[\w\-]+))[\w\-./#?]*$/;
             break;
-        case 'github':
+        case 'Github':
             platformRegex = /^(https?:\/\/)?(www\.)?github\.com\/[\w\-]+\/?[\w\-]*[\w\-./#?]*$/;
             break;
-        case 'x':
+        case 'X':
             platformRegex = /^(https?:\/\/)?(www\.)?(x\.com\/[\w\-]+|twitter\.com\/[\w\-]+)[\w\-./#?]*$/;
             break;
-        case 'facebook':
-            platformRegex = /^(https?:\/\/)?(www\.)?(x\.com\/[\w\-]+|facebook\.com\/[\w\-]+)[\w\-./#?]*$/;
+        case 'Facebook':
+            platformRegex = /^(https?:\/\/)?(www\.)?(facebook\.com\/[a-zA-Z0-9(\.\?)?]+)/;
             break;
         default:
             platformRegex = /^(https?:\/\/)?[\w\-]+(\.[\w\-]+)+[/#?]?.*$/; // Default regex for general URLs
@@ -20,7 +20,7 @@ const validateLink = (link, platform, setIsValid) => {
     }
 
     // Check if the link matches the regex pattern
-    setIsValid(platformRegex.test(link));
+    return platformRegex.test(link);
 };
 
 

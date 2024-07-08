@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import React from 'react'
 import { FaGithub } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa6";
+import { platform as platformData } from 'src/Data/Platform';
 
 export default function LinkView(props) {
 
@@ -21,23 +22,23 @@ export default function LinkView(props) {
     let backgroundColor;
 
     switch (platform) {
-        case 'youtube':
+        case 'Youtube':
             backgroundColor = 'bg-red-600'
             break;
-        case 'x':
+        case 'X':
             backgroundColor = 'bg-gray-900'
             break;
-        case 'github':
+        case 'Github':
             backgroundColor = 'bg-gray-900'
             break;
-        case 'facebook':
+        case 'Facebook':
             backgroundColor = 'bg-blue-600'
             break;
         default:
             backgroundColor = 'bg-gray-500'
             break;
     }
-
+    const iconData = platformData.filter(item => item.value === props.data.platform?.value)
     return (
         <motion.a
             whileHover={{ scale: 1.01 }}
@@ -48,7 +49,8 @@ export default function LinkView(props) {
         >
             <div className={`${backgroundColor} flex items-center text-gray-100 justify-between p-4 rounded-md w-60 md:w-72 lg:w-80`}>
                 <h3 className='flex   items-center text-md gap-2'>
-                    {props.data.platform?.label}
+                    {iconData[0].icon}
+                    {props.data.platform?.value}
                 </h3>
                 <FaArrowRight />
             </div>
