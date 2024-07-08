@@ -1,12 +1,9 @@
 {
     "routes": [
         {
-            "src": "/",
-            "dest": "/"
-        },
-        {
-            "src": "/profile",
-            "dest": "/profile"
+            "src": "/[^.]+",
+            "dest": "/",
+            "status": 200
         }
     ]
 }
