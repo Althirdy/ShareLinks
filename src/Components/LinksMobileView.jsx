@@ -9,7 +9,7 @@ export default function LinksMobileView() {
     const animate = 'animate-pulse'
     return (
         <div className=' lg:gap-16 space-y-6 p-8  bg-'>
-            <div className='mt-5'>
+            <div className='mt-24'>
                 <div className='flex flex-col items-center mb-8'>
                     <div
                         className={`h-36 mb-5 w-36 shadow-lg bg-gray-300 rounded-full ${profile.imgSrc === defaultImg && animate}`}>
@@ -25,7 +25,7 @@ export default function LinksMobileView() {
                     }
                 </div>
                 <h5 className='text-lg font-medium'>About {profile.FullName}</h5>
-                <textarea value={profile.Description} rows={10} disabled className='text-sm font-regular p-2  bg-transparent resize-none w-full tracking-tight text-gray-700 mt-3 rounded-md  ' />
+                <textarea value={profile.Description} rows={10} disabled className='text-sm font-regular p-2  bg-transparent resize-none w-full tracking-tight text-gray-800 mt-3 rounded-md  ' />
             </div>
             {/* End Profile */}
             <div className='lg:space-y-3 flex flex-col items-center space-y-2'>

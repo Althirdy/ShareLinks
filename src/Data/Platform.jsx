@@ -2,6 +2,7 @@ import { CiTwitter } from "react-icons/ci";
 import { FaGithub, FaYoutube, FaFacebook } from "react-icons/fa";
 
 const defaultImg = "https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ="
+const bgDefaultImg = "https://www.icolorpalette.com/download/solidcolorimage/02ccfe_solid_color_background_icolorpalette.png"
 
 const platform = [
     {
@@ -33,4 +34,4 @@ const platform = [
 ]
 
 
-export { platform, defaultImg }
+export { platform, defaultImg,bgDefaultImg }

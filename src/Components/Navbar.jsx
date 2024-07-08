@@ -38,11 +38,11 @@ export default function Navbar() {
                         </NavLink>
                     ))}
                 </ul>
-                <motion.button
+                {/* <motion.button
                     whileHover={{ scale: 1.02 }}
                     className='text-blue-700 font-medium border text-sm border-blue-700 px-4 py-1.5 rounded-md'>
                     Preview
-                </motion.button>
+                </motion.button> */}
             </div>
         </nav>
     )

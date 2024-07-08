@@ -1,10 +1,11 @@
 import React, { createContext, useEffect, useState } from "react";
-import { defaultImg, platform } from 'src/Data/Platform';
+import { defaultImg, platform, bgDefaultImg } from 'src/Data/Platform';
 
-// Create context
+
 export const LinksContext = createContext();
 
-// Provider component
+const ONE_HOUR = 3600000;
+
 export const AppProvider = ({ children }) => {
     const defaultValue = [
         {
@@ -13,15 +14,26 @@ export const AppProvider = ({ children }) => {
             link: '',
             isValidated: false
         }
+
     ]
     const [linkCards, setLinkCards] = useState(() => {
-        const pastValue = JSON.parse(localStorage.getItem('linkCards'))
-        return pastValue || defaultValue
+        const storedData = JSON.parse(localStorage.getItem('linkCards'));
+        const storedTimestamp = localStorage.getItem('linkCardsTimestamp');
+        const now = new Date().getTime();
+
+        if (storedData && storedTimestamp && (now - storedTimestamp) < ONE_HOUR) {
+            return storedData;
+        }
+
+        localStorage.removeItem('linkCards');
+        localStorage.removeItem('linkCardsTimestamp');
+        return defaultValue;
     })
 
     useEffect(() => {
-        localStorage.setItem('linkCards', JSON.stringify(linkCards))
-    }, [linkCards])
+        localStorage.setItem('linkCards', JSON.stringify(linkCards));
+        localStorage.setItem('linkCardsTimestamp', new Date().getTime());
+    }, [linkCards]);
 
 
 
@@ -29,16 +41,17 @@ export const AppProvider = ({ children }) => {
         const pastValue = JSON.parse(localStorage.getItem('profile'))
         return pastValue || {
             imgSrc: defaultImg,
+            bgSrc: bgDefaultImg,
             FullName: '',
             Email: '',
             Description: ''
         }
     })
 
-
     useEffect(() => {
         localStorage.setItem('profile', JSON.stringify(profile))
     }, [profile])
+
 
     return (
         <LinksContext.Provider

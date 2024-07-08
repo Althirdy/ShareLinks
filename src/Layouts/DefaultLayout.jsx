@@ -1,12 +1,17 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import LinksMobileView from 'src/Components/LinksMobileView';
 import Navbar from 'src/Components/Navbar'
 import wave from 'src/Assets/wave.svg'
+import { bgDefaultImg } from 'src/Data/Platform';
+import { LinksContext } from 'src/Context/ApiContext';
 
 export default function DefaultLayout() {
   const location = useLocation();
   const navigate = useNavigate();
+
+  const {profile} = useContext(LinksContext)
+
   useEffect(() => {
     if (location.pathname === '/') {
       navigate('/links', { replace: true });
@@ -22,7 +27,7 @@ export default function DefaultLayout() {
         <main className='flex-grow flex justify-between flex-col bg-gray-100 rounded-md'>
           <div className='grid grid-cols-1  p-4 lg:grid-cols-2 flex-grow gap-4'>
             <div className=' bg-white order-last	 rounded-md relative'>
-              <img src={wave} alt="" className='absolute  top-0 w-full lef-0 rounded-t-md' />
+              <img src={profile.bgSrc} alt="Cover Photo" className='absolute  top-0 w-full object-cover h-52 lef-0 rounded-t-md' />
               <LinksMobileView />
             </div>
             <div className='p-8 bg-white rounded-md flex flex-col gap-8'>

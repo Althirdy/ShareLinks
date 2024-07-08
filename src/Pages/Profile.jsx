@@ -13,12 +13,11 @@ export default function Profile() {
     fileInputRef.current.click();
   };
 
+
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     const validTypes = ['image/png', 'image/jpeg', 'image/bmp'];
     let KB = file.size / 1000
-
-    console.log(KB)
     if (file && validTypes.includes(file.type) && KB <= 5000) {
       const reader = new FileReader();
       reader.onload = (e) => {
@@ -37,15 +36,11 @@ export default function Profile() {
 
   const handleDeleteProfile = () => {
     setProfile(prev => ({ ...prev, imgSrc: defaultImg }))
-    toast.success('Profile Removed!')
   }
 
   const HandleInputChange = (e) => {
     const { name, value } = e.target;
-
-
     const truncatedValue = name === 'Description' ? value.slice(0, maxChars) : value;
-
     setProfile(prev => ({
       ...prev,
       [name]: truncatedValue
