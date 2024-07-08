@@ -16,14 +16,19 @@ export default function Profile() {
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     const validTypes = ['image/png', 'image/jpeg', 'image/bmp'];
+    let KB = file.size / 1000
 
-    if (file && validTypes.includes(file.type)) {
+    console.log(KB)
+    if (file && validTypes.includes(file.type) && KB <= 5000) {
       const reader = new FileReader();
       reader.onload = (e) => {
         setProfile(prev => ({ ...prev, imgSrc: e.target.result }))
         toast.success('Profile Updated!')
       };
       reader.readAsDataURL(file);
+
+    } else if (KB > 5000) {
+      toast.error("The file must be 10MB or below")
     } else {
       toast.error("Invalid file type. Only PNG, JPG, and BMP files are allowed.")
     }
@@ -73,7 +78,7 @@ export default function Profile() {
         <div className='lg:col-start-5 lg:col-span-4 space-y-4'>
           <div>
             <h4 className='font-medium text-xl text-gray-800'>Profile Picture</h4>
-            <p className='text-sm text-gray-700'>Image must be below 1024X1024px use PNG,JPG, or BMP format.</p>
+            <p className='text-sm text-gray-700'>Image must be below 5MB <br /> Use PNG,JPG, or BMP format.</p>
           </div>
           {profile.imgSrc != defaultImg && <button onClick={handleDeleteProfile} className='bg-red-500 px-4 py-1.5 text-gray-50 rounded-md text-sm'>Remove Profile</button>}
         </div>
