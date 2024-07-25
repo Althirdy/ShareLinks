@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import LinkView from './LinkView'
 import { LinksContext } from 'src/Context/ApiContext'
 import { defaultImg } from 'src/Data/Platform'
@@ -7,9 +7,19 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 
 export default function LinksMobileView() {
+    const textAreaRef = useRef(null);
+
     const { linkCards, profile } = useContext(LinksContext)
     const filteredLinkCards = linkCards.filter(card => card.isValidated && card);
     const animate = 'animate-pulse'
+
+
+    useEffect(() => {
+        textAreaRef.current.style.height = "auto";
+        textAreaRef.current.style.height = textAreaRef.current.scrollHeight + "px";
+    }, [profile.Description])
+
+
     return (
         <div className=' lg:gap-16 space-y-6 p-8  bg-'>
             <div className='mt-24'>
@@ -28,7 +38,7 @@ export default function LinksMobileView() {
                     </div>
                 </div>
                 <h5 className='text-lg font-medium'>About {profile.FullName}</h5>
-                <textarea value={profile.Description} rows={10} disabled className='text-sm font-regular p-2  bg-transparent resize-none w-full tracking-tight text-gray-800 mt-3 rounded-md  ' />
+                <textarea value={profile.Description} ref={textAreaRef} rows={2} disabled className='text-sm font-regular p-2  bg-transparent resize-none w-full tracking-tight text-gray-800 mt-3 rounded-md  ' />
             </div>
             {/* End Profile */}
             <div className='lg:space-y-3 flex flex-col items-center space-y-2'>
